@@ -1,0 +1,38 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-danger">
+                          <h4 class="card-title">Ajouter une attestation</h4>
+                          <p class="card-category">Completer le profile</p>
+                      </div>
+                      <div class="card-body">
+                        <form role="form" [formGroup]="attestationForm">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="date_debut" formControlName="attestationdatedebut" required type="date">
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="date_fin" formControlName="attestationdatefin" required type="date">
+                                    </mat-form-field>
+                                  </div>
+                              </div>
+                              
+                              <button mat-raised-button type="submit" (click)="addAttestation()" class="btn btn-danger pull-right">Valider</button>
+
+                              <button mat-button mat-dialog-close class="btn btn-danger pull-right">Annuler</button>
+                              
+                              <div class="clearfix"></div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+

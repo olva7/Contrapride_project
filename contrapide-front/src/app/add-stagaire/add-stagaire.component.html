@@ -1,0 +1,106 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajouter un stagaire</h4>
+                        <p class="card-category">Completer le profile</p>
+                    </div>
+                    <div class="card-body">
+                      <form 
+                      role="form"
+                      [formGroup]="stagaireForm"
+                      >
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="WG CONSULTING" disabled>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Nom" formControlName="stagaireNom" required>
+                                    <mat-error *ngIf="stagaireForm.get('stagaireNom')?.invalid && (stagaireForm.get('stagaireNom').touched || stagaireForm.get('stagaireNom').dirty)">
+                                      Le nom est requis et doit commencer par une majuscule.
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                 <!--<form [formGroup]="salarieForms">-->
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput  placeholder="Prenom" formControlName="stagairePrenom" required>
+                                    <mat-error *ngIf="stagaireForm.get('stagairePrenom')?.invalid && (stagaireForm.get('stagairePrenom').touched || stagaireForm.get('stagairePrenom').dirty)">
+                                        Le Prénom est requis et doit commencer par une majuscule.
+                                      </mat-error>
+                                    <!--<div class="alert alert-danger" *ngIf="salarieForms.controls['prenom'].invalid && (salarieForms.controls['prenom'].touched || salarieForms.controls['prenom'].dirty)">
+                                      le prénom est obligatoire
+                                    </div>-->
+                                  </mat-form-field>
+                                <!--</form>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput  placeholder="Addresse" 
+                                  formControlName="stagaireAddresse"
+                                   required type="text">
+                                </mat-form-field>
+                              </div>
+
+                          
+                            
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="CIN" 
+                                    formControlName="stagaireCin"
+                                     required type="number">
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput  placeholder="datedenaissance" 
+                                      formControlName="stagaireDatedenaissance"
+                                       required type="date">
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="name@example.com" formControlName="stagairemail" required type="email">
+                                      <mat-error *ngIf="stagaireForm.get('stagairemail')?.invalid && (stagaireForm.get('stagairemail').touched || stagaireForm.get('stagairemail').dirty)">
+                                        Ecrit une format valide de mail!!
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                              </div>
+                          
+                            <div class="col-md-8">
+                              <section class="example-section">
+                                <label class="example-margin">Gendre</label>
+                                <mat-radio-group
+                                  aria-labelledby="example-radio-group-label"  class="example-radio-group" formControlName="stagaireGendre">
+                                <mat-radio-button  value="homme">Homme</mat-radio-button>
+                                <mat-radio-button  value="femme">Femme</mat-radio-button>
+                                </mat-radio-group>
+                              </section>
+                          </div>
+                          
+                            <button mat-raised-button type="submit"   (click)="addStagaire()"
+                            class="btn btn-danger pull-right">sauvegarder</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+
+

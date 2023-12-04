@@ -1,0 +1,54 @@
+
+
+<div class="row coupon-wrapper" id="couponPage" #couponPage style="margin-top: 0;">
+    <div #content class="content">
+
+        <div class="logo-img">
+            <img src="https://media.licdn.com/dms/image/C560BAQHwV_esHzmEkA/company-logo_200_200/0/1566583937508?e=2147483647&v=beta&t=ZkuOOoAV69qjuCAS3BKTQn3t2fc_n5lTL52f-Ue0N3w"/>
+        </div>
+        <div class="center-heading">
+            <h2> <B>
+                <strong> ATTESTATION DE STAGE 
+                </strong></B> </h2>
+          </div> 
+          <p>
+            Je, soussigné, Monsieur BOUSSEMA RJEB, gérant de la société WG CONSULTING,
+atteste par la présente
+que             <span *ngIf="data.stagaire?.gendre === 'homme'">
+    Monsieur {{ data.stagaire?.nom | uppercase }} {{ data.stagaire?.prenom }},
+  </span>
+  <span *ngIf="data.stagaire?.gendre === 'femme'">
+    Madame {{ data.stagaire?.nom | uppercase }} {{ data.salarie?.prenom }},
+  </span> née le  {{ formatDate2(data.stagaire?.datedenaissance) }} titulaire de carte
+d'identité
+numéro {{data.stagaire?.cin}} a effectué avec succès un stage au sein de notre entreprise du
+19/06/2023<!--{{ formatDate(data.stagaire?.date_debut) }}--> au 31/07/2023<!--{{ formatDate(data.stagaire?.date_fin) }}--> en qualité de stagiaire. Le stagiaire a passé son stage dans des très
+bonnes conditions en termes de connaissances professionnelles et d'assiduité dans le travail.
+
+
+
+
+Nous lui délivrons la présente attestation pour servir et valoir ce que de droit.
+
+
+
+            <br> 
+            <pre><B>Signature et cachet </B>                                        <span> </span></pre><br>
+                                                                            
+              
+              
+                
+              
+            
+                    
+                                
+        
+                
+            
+           
+          
+<button (click)="exportDataToPDF()" class="btn btn-danger pull-right">télecharger</button>
+<button (click)="exportDataToPDF()" class="btn btn-danger pull-right">supprimer</button>
+<button mat-button mat-dialog-close class="btn btn-danger pull-right">Annuler</button>
+
+

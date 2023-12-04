@@ -1,0 +1,69 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title mt-0">Table des salarié</h4>
+              <p class="card-category">Voici tous les salariés</p>
+            </div>
+            <div class="card-body">
+              <div class="form-group col-md-6">
+                <form class="navbar-form">
+                  <div class="input-group no-border">
+                    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Rechercher par nom...">
+                    <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                      <i class="material-icons">search</i>
+                      <div class="ripple-container"></div>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>CIN</th>
+                      <th>Addresse</th>
+                      <th>Mail</th>
+                      <th>Numéro de téléphone</th>
+                      <th>Gendre</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let salarie of filterSalarieList()" class="table table-striped">
+                      <td>{{salarie.nom}}</td>
+                      <td>{{salarie.prenom}}</td>
+                      <td>{{salarie.cin}}</td>
+                      <td>{{salarie.addresse}}</td>
+                      <td>{{salarie.mail}}</td>
+                      <td>{{salarie.numero}}</td>
+                      <td>{{salarie.gendre}}</td>
+                      <td>
+                        <ul class="list-inline m-0">
+                          <li class="list-inline-item">
+                            <span class="mat-button-wrapper"><i (click)="openDialog(salarie.id)" type="button" href="icons" class="material-icons">edit</i></span>
+                          </li>
+                          <li class="list-inline-item">
+                            <span class="mat-button-wrapper"><mat-icon aria-hidden="false" aria-label="Example home icon" type="button" fontIcon="visibility" (click)="openDialog2(salarie.id)" title="Voir"></mat-icon></span>
+                          </li>
+                          <li class="list-inline-item">
+                            <span class="mat-button-wrapper"><mat-icon aria-hidden="false" aria-label="Example home icon" type="button" fontIcon="delete" (click)="delete(salarie.id)" title="Delete"></mat-icon></span>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="pageSize" [pageIndex]="currentPage - 1" [length]="filterSalarieList().length" (page)="onPageChange($event)"></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
